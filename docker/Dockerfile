@@ -43,12 +43,12 @@ RUN git clone --single-branch --branch env-changes https://github.com/mazz/pyhss
 WORKDIR pyhss
 COPY config.yaml ./
 COPY *.sh ./
-RUN mkdir -p log && \
-    pip3 install -r requirements.txt && \
-    cp /pyhss/tools/Diameter_client.py /pyhss/ && \
-    cp /pyhss/services/* /pyhss/ && \
-    cp /pyhss/lib/* /pyhss/ && \
-    chmod +x *.sh
+RUN mkdir -p log
+RUN pip3 install -r requirements.txt
+RUN cp /pyhss/tools/* /pyhss/
+RUN cp /pyhss/services/* /pyhss/
+RUN cp /pyhss/lib/* /pyhss/
+RUN chmod +x *.sh
 
 ENTRYPOINT [ "/pyhss/entrypoint.sh" ]
 CMD [ "/usr/bin/python3", "hssService.py" ] 
