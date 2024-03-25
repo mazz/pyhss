@@ -45,9 +45,31 @@ COPY config.yaml ./
 COPY *.sh ./
 RUN mkdir -p log
 RUN pip3 install -r requirements.txt
+
 RUN cp /pyhss/tools/Diameter_client.py /pyhss/
-RUN cp /pyhss/services/* /pyhss/
-RUN cp /pyhss/lib/* /pyhss/
+
+RUN cp /pyhss/lib/lib/banners.py /pyhss/
+RUN cp /pyhss/lib/lib/CryptoTool.py /pyhss/
+RUN cp /pyhss/lib/lib/database.py /pyhss/
+RUN cp /pyhss/lib/lib/diameter.py /pyhss/
+RUN cp /pyhss/lib/lib/diameterAsync.py /pyhss/
+RUN cp /pyhss/lib/lib/logtool.py /pyhss/
+RUN cp /pyhss/lib/lib/lte.py /pyhss/
+RUN cp /pyhss/lib/lib/messaging.py /pyhss/
+RUN cp /pyhss/lib/lib/messagingAsync.py /pyhss/
+RUN cp /pyhss/lib/lib/metrics.py /pyhss/
+RUN cp /pyhss/lib/lib/milenage.py /pyhss/
+RUN cp /pyhss/lib/lib/mongodb_insert_subscriber.py /pyhss/
+RUN cp /pyhss/lib/lib/S6a_crypt.py /pyhss/
+
+RUN cp /pyhss/services/hssService.py /pyhss/
+RUN cp /pyhss/services/apiService.py /pyhss/
+RUN cp /pyhss/services/databaseService.py /pyhss/
+RUN cp /pyhss/services/diameterService.py /pyhss/
+RUN cp /pyhss/services/georedService.py /pyhss/
+RUN cp /pyhss/services/logService.py /pyhss/
+RUN cp /pyhss/services/metricService.py /pyhss/
+
 RUN chmod +x *.sh
 
 ENTRYPOINT [ "/pyhss/entrypoint.sh" ]
