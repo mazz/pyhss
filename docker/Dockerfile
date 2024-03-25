@@ -37,14 +37,15 @@ RUN apt-get update && \
         vim \
         tcpdump \
         redis-server
-RUN git clone https://github.com/nickvsnetworking/pyhss.git
+RUN git clone https://github.com/mazz/pyhss.git#env-changes
 WORKDIR pyhss
 COPY config.yaml ./
 COPY *.sh ./
 RUN mkdir -p log && \
     pip3 install -r requirements.txt && \
     cp /pyhss/tools/Diameter_client.py /pyhss/ && \
+    cp /pyhss/services/hssService.py /pyhss/ && \
     chmod +x *.sh
 
 ENTRYPOINT [ "/pyhss/entrypoint.sh" ]
-CMD [ "/usr/bin/python3", "hss.py" ] 
+CMD [ "/usr/bin/python3", "hssService.py" ] 

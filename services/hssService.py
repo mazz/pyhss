@@ -1,5 +1,6 @@
 import os, sys, json, yaml, time, traceback, socket
-sys.path.append(os.path.realpath('../lib'))
+sys.path.append(os.path.realpath('lib'))
+# sys.path.append(os.path.realpath('../lib'))
 from messaging import RedisMessaging
 from diameter import Diameter
 from banners import Banners
