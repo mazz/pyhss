@@ -37,7 +37,9 @@ RUN apt-get update && \
         vim \
         tcpdump \
         redis-server
-RUN git clone https://github.com/mazz/pyhss.git#env-changes
+
+# RUN git clone https://github.com/mazz/pyhss.git
+RUN git clone --single-branch --branch env-changes https://github.com/mazz/pyhss.git
 WORKDIR pyhss
 COPY config.yaml ./
 COPY *.sh ./
