@@ -45,7 +45,7 @@ COPY config.yaml ./
 COPY *.sh ./
 RUN mkdir -p log
 RUN pip3 install -r requirements.txt
-RUN cp /pyhss/tools/* /pyhss/
+RUN cp /pyhss/tools/Diameter_client.py /pyhss/
 RUN cp /pyhss/services/* /pyhss/
 RUN cp /pyhss/lib/* /pyhss/
 RUN chmod +x *.sh
