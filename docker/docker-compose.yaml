@@ -1,9 +1,9 @@
 version: '3'
 networks:
-  default:
+  hss:
     ipam:
       config:
-        - subnet: "255.255.255.0/24"
+        - subnet: "17.31.0.0/16"
 services:
   pyhss:
     build: .
@@ -22,5 +22,5 @@ services:
       - "3868:3868/tcp"
       - "3868:3868/sctp"
     networks:
-      default:
-        ipv4_address: ${HSS_IP}
+      hss:
+        ipv4_address: "17.31.0.2"
