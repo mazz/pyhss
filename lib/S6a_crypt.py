@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.path.realpath('../'))
 import yaml
 
-with open("../config.yaml", 'r') as stream:
+with open("config.yaml", 'r') as stream:
     yaml_config = (yaml.safe_load(stream))
 
 # logtool = logtool.LogTool()

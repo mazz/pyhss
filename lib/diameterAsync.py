@@ -32,7 +32,7 @@ class DiameterAsync:
                 {"commandCode": 8388622, "applicationId": 16777291, "responseMethod": self.Answer_16777291_8388622, "failureResultCode": 4100 ,"requestAcronym": "LRR", "responseAcronym": "LRA", "requestName": "LCS Routing Info Request", "responseName": "LCS Routing Info Answer"},
             ]
 
-        with open("../config.yaml", 'r') as stream:
+        with open("config.yaml", 'r') as stream:
             self.config = (yaml.safe_load(stream))
             
         self.redisUseUnixSocket = self.config.get('redis', {}).get('useUnixSocket', False)

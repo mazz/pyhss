@@ -46,7 +46,8 @@ COPY *.sh ./
 RUN mkdir -p log && \
     pip3 install -r requirements.txt && \
     cp /pyhss/tools/Diameter_client.py /pyhss/ && \
-    cp /pyhss/services/hssService.py /pyhss/ && \
+    cp /pyhss/services/* /pyhss/ && \
+    cp /pyhss/lib/* /pyhss/ && \
     chmod +x *.sh
 
 ENTRYPOINT [ "/pyhss/entrypoint.sh" ]

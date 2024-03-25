@@ -16,7 +16,7 @@ class LogService:
 
     def __init__(self):
         try:
-            with open("../config.yaml", "r") as self.configFile:
+            with open("config.yaml", "r") as self.configFile:
                 self.config = yaml.safe_load(self.configFile)
         except:
             print(f"[Log] Fatal Error - config.yaml not found, exiting.")

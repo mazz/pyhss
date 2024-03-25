@@ -21,7 +21,7 @@ import json
 import socket
 import traceback
 
-with open("../config.yaml", 'r') as stream:
+with open("config.yaml", 'r') as stream:
     config = (yaml.safe_load(stream))
 
 
@@ -336,7 +336,7 @@ class SUBSCRIBER_ATTRIBUTES_OPERATION_LOG(OPERATION_LOG_BASE):
 class Database:
 
     def __init__(self, logTool, redisMessaging=None):
-        with open("../config.yaml", 'r') as stream:
+        with open("config.yaml", 'r') as stream:
             self.config = (yaml.safe_load(stream))
         
         self.redisUseUnixSocket = self.config.get('redis', {}).get('useUnixSocket', False)

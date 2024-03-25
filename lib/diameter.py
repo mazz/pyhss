@@ -20,7 +20,7 @@ import re
 class Diameter:
 
     def __init__(self, logTool, originHost: str="hss01", originRealm: str="epc.mnc999.mcc999.3gppnetwork.org", productName: str="PyHSS", mcc: str="999", mnc: str="999", redisMessaging=None):
-        with open("../config.yaml", 'r') as stream:
+        with open("config.yaml", 'r') as stream:
             self.config = (yaml.safe_load(stream))
 
         self.OriginHost = self.string_to_hex(originHost)

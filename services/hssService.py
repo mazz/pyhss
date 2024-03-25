@@ -1,5 +1,5 @@
 import os, sys, json, yaml, time, traceback, socket
-sys.path.append(os.path.realpath('lib'))
+# sys.path.append(os.path.realpath('lib'))
 # sys.path.append(os.path.realpath('../lib'))
 from messaging import RedisMessaging
 from diameter import Diameter
@@ -11,7 +11,7 @@ class HssService:
     def __init__(self):
 
         try:
-            with open("../config.yaml", "r") as self.configFile:
+            with open("config.yaml", "r") as self.configFile:
                 self.config = yaml.safe_load(self.configFile)
         except:
             print(f"[HSS] Fatal Error - config.yaml not found, exiting.")

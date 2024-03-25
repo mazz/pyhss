@@ -17,7 +17,7 @@ from messaging import RedisMessaging
 import database
 import yaml
 
-with open("../config.yaml", 'r') as stream:
+with open("config.yaml", 'r') as stream:
     config = (yaml.safe_load(stream))
 
 siteName = config.get("hss", {}).get("site_name", "")

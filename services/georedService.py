@@ -16,7 +16,7 @@ class GeoredService:
 
     def __init__(self, redisHost: str='127.0.0.1', redisPort: int=6379):
         try:
-            with open("../config.yaml", "r") as self.configFile:
+            with open("config.yaml", "r") as self.configFile:
                 self.config = yaml.safe_load(self.configFile)
         except:
             print(f"[Geored] Fatal Error - config.yaml not found, exiting.")
