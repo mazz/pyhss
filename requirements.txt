@@ -14,5 +14,5 @@ Requests==2.31.0
 SQLAlchemy==2.0.9
 SQLAlchemy_Utils==0.41.1
 Werkzeug==2.2.3
-mysqlclient
 prometheus_flask_exporter
+psycopg2-binary
