@@ -112,10 +112,10 @@ logging:
 
 ## Database Parameters
 database:
-  db_type: mysql    #Supported types are MySQL and Postgres
+  db_type: postgresql    #Supported types are MySQL and Postgres
   server: 127.0.0.1
-  username: dbeaver
-  password: password
+  username: hss2
+  password: hss2
   database: hss2
   readCacheEnabled: True
   readCacheInterval: 60
