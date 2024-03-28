@@ -6,7 +6,7 @@ PartOf=pyhss.service
 [Service]
 User=root
 WorkingDirectory=/root/pyhss/services/
-ExecStart=/root/pyhss/project_venv/bin/python3.11 hssService.py
+ExecStart=/root/pyhss/project_venv/bin/python hssService.py
 Restart=always
 
 [Install]

@@ -6,7 +6,7 @@ PartOf=pyhss.service
 [Service]
 User=root
 WorkingDirectory=/root/pyhss/services/
-ExecStart=/root/pyhss/project_venv/bin/python3.11 georedService.py
+ExecStart=/root/pyhss/project_venv/bin/python georedService.py
 Restart=always
 
 [Install]

@@ -6,7 +6,7 @@ PartOf=pyhss.service
 [Service]
 User=root
 WorkingDirectory=/root/pyhss/services/
-ExecStart=/root/pyhss/project_venv/bin/python3.11 logService.py
+ExecStart=/root/pyhss/project_venv/bin/python logService.py
 Restart=always
 
 [Install]
