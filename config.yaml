@@ -13,18 +13,18 @@ hss:
   OriginHost: "hss01"
 
   #Value to populate as the OriginRealm in Diameter responses
-  OriginRealm: "epc.mnc001.mcc001.3gppnetwork.org"
+  OriginRealm: "epc.mnc302.mcc999.3gppnetwork.org"
 
   #Value to populate as the Product name in Diameter responses
   ProductName: "pyHSS"
 
   #Name of the Site, shown in API
-  site_name: "Sydney"
+  site_name: "POV"
 
   #Your Home Mobile Country Code (Used for PLMN calcluation)
-  MCC: "001"
+  MCC: "302"
   #Your Home Mobile Network Code (Used for PLMN calcluation)
-  MNC: "01"
+  MNC: "999"
 
   #Enable GMLC / SLh Interface
   SLh_enabled: False
@@ -65,7 +65,7 @@ hss:
 
   #S-CSCF Pool
   scscf_pool:
-    - 'scscf.ims.mnc001.mcc001.3gppnetwork.org'
+    - 'scscf.ims.mnc302.mcc999.3gppnetwork.org'
 
   roaming:
     outbound:
@@ -137,8 +137,8 @@ geored:
   enabled: False
   sync_actions: ['HSS', 'IMS', 'PCRF', 'EIR']    #What event actions should be synced
   endpoints:                         #List of PyHSS API Endpoints to update
-    - 'http://hss01.mnc001.mcc001.3gppnetwork.org:8080'
-    - 'http://hss02.mnc001.mcc001.3gppnetwork.org:8080'
+    - 'http://hss01.mnc302.mcc999.3gppnetwork.org:8080'
+    - 'http://hss02.mnc302.mcc999.3gppnetwork.org:8080'
 
 #Redis is required to run PyHSS. An instance running on a local network is recommended for production.
 redis:
@@ -153,7 +153,7 @@ redis:
   sentinel:
     masterName: exampleMaster
     hosts:
-      - exampleSentinel.mnc001.mcc001.3gppnetwork.org:
+      - exampleSentinel.mnc302.mcc999.3gppnetwork.org:
         port: 6379
         password: ''
 
