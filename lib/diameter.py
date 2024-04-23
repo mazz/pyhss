@@ -1633,8 +1633,13 @@ class Diameter:
         imsi = binascii.unhexlify(imsi).decode('utf-8')                                                  #Convert IMSI
         plmn = self.get_avp_data(avps, 1407)[0]                                                          #Get PLMN from User-Name AVP in request
 
+        # print("imsi: {}".format(imsi))
+        self.logTool.log(service='Database', level='info', message="imsi: {}".format(imsi), redisClient=self.redisMessaging)
+
         try:
             subscriber_details = self.database.Get_Subscriber(imsi=imsi)                                               #Get subscriber details
+            # print("subscriber_details: {}".format(subscriber_details))
+            self.logTool.log(service='Database', level='info', message="subscriber_details: {}".format(subscriber_details), redisClient=self.redisMessaging)
             if subscriber_details['enabled'] == 0:
                 self.logTool.log(service='HSS', level='debug', message=f"Subscriber {imsi} is disabled", redisClient=self.redisMessaging)
                 avp = ''
@@ -1773,6 +1778,11 @@ class Diameter:
                         rand = str(sub_avp['misc_data'])[:32]
                         rand = binascii.unhexlify(rand)
                         #Calculate correct SQN
+
+                        # print("subscriber_details: {}".format(subscriber_details['auc_id']))
+                        self.logTool.log(service='Database', level='info', message="subscriber_details, auc_id: {}".format(subscriber_details['auc_id']), redisClient=self.redisMessaging)
+
+
                         self.database.Get_Vectors_AuC(subscriber_details['auc_id'], "sqn_resync", auts=auts, rand=rand)
 
                     #Get number of requested vectors
