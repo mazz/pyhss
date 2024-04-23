@@ -4,27 +4,28 @@ hss:
   # Note: SCTP works but is still experimental. TCP has been load-tested and performs in a production environment.
   transport: "TCP"
   #IP Addresses to bind on (List) - For TCP only the first IP is used, for SCTP all used for Transport (Multihomed).
-  bind_ip: ["0.0.0.0"]
+  # bind_ip: ["10.204.238.38"]
+  bind_ip: ["127.0.0.8"]
 
   #Port to listen on (Same for TCP & SCTP)
   bind_port: 3868
 
   #Value to populate as the OriginHost in Diameter responses
-  OriginHost: "hss01"
+  OriginHost: "hss.localpyhss"
 
   #Value to populate as the OriginRealm in Diameter responses
-  OriginRealm: "epc.mnc001.mcc001.3gppnetwork.org"
+  OriginRealm: "localpyhss"
 
   #Value to populate as the Product name in Diameter responses
   ProductName: "pyHSS"
 
   #Name of the Site, shown in API
-  site_name: "Sydney"
+  site_name: "POV"
 
   #Your Home Mobile Country Code (Used for PLMN calcluation)
-  MCC: "001"
+  MCC: "302"
   #Your Home Mobile Network Code (Used for PLMN calcluation)
-  MNC: "01"
+  MNC: "999"
 
   #Enable GMLC / SLh Interface
   SLh_enabled: False
@@ -65,7 +66,7 @@ hss:
 
   #S-CSCF Pool
   scscf_pool:
-    - 'scscf.ims.mnc001.mcc001.3gppnetwork.org'
+    - 'scscf.ims.mnc302.mcc999.3gppnetwork.org'
 
   roaming:
     outbound:
@@ -112,10 +113,10 @@ logging:
 
 ## Database Parameters
 database:
-  db_type: mysql    #Supported types are MySQL and Postgres
+  db_type: postgresql    #Supported types are MySQL and Postgres
   server: 127.0.0.1
-  username: dbeaver
-  password: password
+  username: hss2
+  password: hss2
   database: hss2
   readCacheEnabled: True
   readCacheInterval: 60
@@ -137,8 +138,8 @@ geored:
   enabled: False
   sync_actions: ['HSS', 'IMS', 'PCRF', 'EIR']    #What event actions should be synced
   endpoints:                         #List of PyHSS API Endpoints to update
-    - 'http://hss01.mnc001.mcc001.3gppnetwork.org:8080'
-    - 'http://hss02.mnc001.mcc001.3gppnetwork.org:8080'
+    - 'http://hss01.mnc302.mcc999.3gppnetwork.org:8080'
+    - 'http://hss02.mnc302.mcc999.3gppnetwork.org:8080'
 
 #Redis is required to run PyHSS. An instance running on a local network is recommended for production.
 redis:
@@ -147,13 +148,13 @@ redis:
   # unix - Connect to redis via a unix socket, provided by unixSocketPath.
   # sentinel - Connect to one or more redis sentinel hosts.
   connectionType: "tcp"
-  unixSocketPath: '/var/run/redis/redis-server.sock'
+  unixSocketPath: '/run/redis/redis-server.pid'
   host: localhost
   port: 6379
-  sentinel:
+  unix:
     masterName: exampleMaster
     hosts:
-      - exampleSentinel.mnc001.mcc001.3gppnetwork.org:
+      - exampleSentinel.mnc302.mcc999.3gppnetwork.org:
         port: 6379
         password: ''
 
