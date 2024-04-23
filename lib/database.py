@@ -1564,14 +1564,8 @@ class Database:
         return Served_Subs
 
     def Get_Vectors_AuC(self, auc_id, action, **kwargs):
-    
         self.logTool.log(service='Database', level='debug', message="Getting Vectors for auc_id " + str(auc_id) + " with action " + str(action), redisClient=self.redisMessaging)
-        self.logTool.log(service='Database', level='info', message="key_data: {}".format(key_data), redisClient=self.redisMessaging)
-
-
         key_data = self.GetObj(AUC, auc_id)
-
-
         vector_dict = {}
         
         if action == "air":
@@ -2695,8 +2689,6 @@ if __name__ == "__main__":
 
     #Generate Vectors
     print("Generating Vectors")
-    print("auc_id: {}".format(auc_id))
-
     database.Get_Vectors_AuC(auc_id, "air", plmn='12ff')
     print(database.Get_Vectors_AuC(auc_id, "sip_auth", plmn='12ff'))
 
