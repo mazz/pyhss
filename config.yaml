@@ -2,7 +2,7 @@
 hss:  
   # Transport Type. "TCP" and "SCTP" are valid options.
   # Note: SCTP works but is still experimental. TCP has been load-tested and performs in a production environment.
-  transport: "TCP"
+  transport: "SCTP"
   #IP Addresses to bind on (List) - For TCP only the first IP is used, for SCTP all used for Transport (Multihomed).
   # bind_ip: ["10.204.238.38"]
   bind_ip: ["127.0.0.8"]
