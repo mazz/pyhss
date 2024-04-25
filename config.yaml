@@ -100,7 +100,7 @@ eir:
   #tac_database_csv: '/etc/pyhss/tac_database.csv'
 
 logging:
-  level: INFO
+  level: DEBUG
   logfiles:
     hss_logging_file: /var/log/pyhss_hss.log
     diameter_logging_file: /var/log/pyhss_diameter.log
